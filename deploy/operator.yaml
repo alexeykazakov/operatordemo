@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: alexeyproject
+  name: operatordemo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: alexeyproject
+      name: operatordemo
   template:
     metadata:
       labels:
-        name: alexeyproject
+        name: operatordemo
     spec:
-      serviceAccountName: alexeyproject
+      serviceAccountName: operatordemo
       containers:
-        - name: alexeyproject
+        - name: operatordemo
           # Replace this with the built image name
           image: REPLACE_IMAGE
           command:
-          - alexeyproject
+          - operatordemo
           imagePullPolicy: Always
           env:
             - name: WATCH_NAMESPACE
@@ -30,4 +30,4 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: OPERATOR_NAME
-              value: "alexeyproject"
+              value: "operatordemo"

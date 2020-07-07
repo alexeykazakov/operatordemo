@@ -1,4 +1,4 @@
-module github.com/alexeykazakov/alexeyproject
+module github.com/alexeykazakov/operatordemo
 
 go 1.13
 

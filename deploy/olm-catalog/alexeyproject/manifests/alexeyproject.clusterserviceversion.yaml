@@ -16,7 +16,7 @@ metadata:
         }
       ]
     capabilities: Basic Install
-  name: alexeyproject.v
+  name: operatordemo.v
   namespace: placeholder
 spec:
   apiservicedefinitions: {}
@@ -26,28 +26,28 @@ spec:
       kind: AppService
       name: appservices.app.example.com
       version: v1alpha1
-  displayName: Alexeyproject
+  displayName: operatordemo
   icon:
   - base64data: ""
     mediatype: ""
   install:
     spec:
       deployments:
-      - name: alexeyproject
+      - name: operatordemo
         spec:
           replicas: 1
           selector:
             matchLabels:
-              name: alexeyproject
+              name: operatordemo
           strategy: {}
           template:
             metadata:
               labels:
-                name: alexeyproject
+                name: operatordemo
             spec:
               containers:
               - command:
-                - alexeyproject
+                - operatordemo
                 env:
                 - name: WATCH_NAMESPACE
                   valueFrom:
@@ -58,12 +58,12 @@ spec:
                     fieldRef:
                       fieldPath: metadata.name
                 - name: OPERATOR_NAME
-                  value: alexeyproject
+                  value: operatordemo
                 image: REPLACE_IMAGE
                 imagePullPolicy: Always
-                name: alexeyproject
+                name: operatordemo
                 resources: {}
-              serviceAccountName: alexeyproject
+              serviceAccountName: operatordemo
       permissions:
       - rules:
         - apiGroups:
@@ -110,7 +110,7 @@ spec:
         - apiGroups:
           - apps
           resourceNames:
-          - alexeyproject
+          - operatordemo
           resources:
           - deployments/finalizers
           verbs:
@@ -140,7 +140,7 @@ spec:
           - patch
           - update
           - watch
-        serviceAccountName: alexeyproject
+        serviceAccountName: operatordemo
     strategy: deployment
   installModes:
   - supported: true

@@ -13,9 +13,9 @@ import (
 	_ "k8s.io/client-go/plugin/pkg/client/auth"
 	"k8s.io/client-go/rest"
 
-	"github.com/alexeykazakov/alexeyproject/pkg/apis"
-	"github.com/alexeykazakov/alexeyproject/pkg/controller"
-	"github.com/alexeykazakov/alexeyproject/version"
+	"github.com/alexeykazakov/operatordemo/pkg/apis"
+	"github.com/alexeykazakov/operatordemo/pkg/controller"
+	"github.com/alexeykazakov/operatordemo/version"
 
 	"github.com/operator-framework/operator-sdk/pkg/k8sutil"
 	kubemetrics "github.com/operator-framework/operator-sdk/pkg/kube-metrics"
@@ -86,7 +86,7 @@ func main() {
 
 	ctx := context.TODO()
 	// Become the leader before proceeding
-	err = leader.Become(ctx, "alexeyproject-lock")
+	err = leader.Become(ctx, "operatordemo-lock")
 	if err != nil {
 		log.Error(err, "")
 		os.Exit(1)
